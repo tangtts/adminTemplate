@@ -8,7 +8,7 @@ import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 const routerHash = createWebHashHistory();
 // createWebHashHistory hash 路由
-// createWebHistory history 路由
+// createWebHistory history 路由1
 // createMemoryHistory 带缓存 history 路由
 
 export const routes: RouteRecordRaw[] = [
