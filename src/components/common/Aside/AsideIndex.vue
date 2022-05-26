@@ -1,10 +1,6 @@
 <template>
   <div style="height: 100vh" class="el-menu-vertical-demo">
-    <el-menu
-      default-active="2"
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-    >
+    <el-menu default-active="2" class="el-menu-vertical-demo">
       <el-sub-menu index="1">
         <template #title>
           <el-icon><location /></el-icon>
@@ -28,8 +24,6 @@
 </template>
 
 <script lang="ts" setup>
-import { State } from "../../../store/index";
-import { useStore } from "vuex";
 import { routes } from "../../../router/index";
 import { defineComponent, computed, ref } from "vue";
 import {
@@ -42,10 +36,6 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const NAME = import.meta.env.VITE_ADMIN_NAME;
 const getAllRouters = router.getRoutes();
-const store = useStore<State>();
-const isCollapse = computed(() => {
-  return store.state.isCollapse;
-});
 </script>
 
 <style scoped lang="scss">
