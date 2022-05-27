@@ -13,7 +13,7 @@ const locale = ref(zhCn);
 
 onMounted(() => {
   axios.get("/src/assets/json/dynamicRoutes.json5").then((res) => {
-    console.log(res,"res");
+    console.log(res, "res");
   });
   // fetch("./assets/json/dynamicRoutes", {
   //   method: "GET",
