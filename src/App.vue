@@ -1,7 +1,7 @@
 <template>
   <div :class="store.mode == 'dark' ? 'dark' : 'light'">
     <el-config-provider :locale="locale">
-      <div class="dark:bg-gray-800 dark:text-white">
+      <div class="darkBg">
         <router-view></router-view>
       </div>
     </el-config-provider>
@@ -31,5 +31,8 @@ body,
     Microsoft YaHei, Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+.darkBg {
+  @apply dark:bg-slate-900 dark:text-white;
 }
 </style>
