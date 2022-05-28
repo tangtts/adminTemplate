@@ -1,5 +1,5 @@
 <template>
-  <div ref="myEcharts" class="darkBg" style="height: 300px"></div>
+  <div ref="myEcharts" class="darkBg" style="height: 300px">aa</div>
 </template>
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from "vue";
