@@ -1,28 +1,24 @@
 <template>
-  <div class="dark">
+  <div :class="store.mode == 'dark' ? 'dark' : 'light'">
     <el-config-provider :locale="locale">
-      <router-view></router-view>
+      <div class="dark:bg-gray-800 dark:text-white">
+        <router-view></router-view>
+      </div>
     </el-config-provider>
   </div>
 </template>
 <script lang="ts" setup>
 import { defineComponent, onMounted, ref } from "vue";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
+import { styleStore } from "store/index";
 import axios from "axios";
 const locale = ref(zhCn);
 
+const store = styleStore();
 onMounted(() => {
   axios.get("/src/assets/json/dynamicRoutes.json5").then((res) => {
     console.log(res);
   });
-  // fetch("./assets/json/dynamicRoutes", {
-  //   method: "GET",
-  //   mode: "cors", // 允许发送跨域请求
-  // })
-  //   .then((res) => res.json())
-  //   .then((res) => {
-  //     console.log(res);
-  //   });
 });
 </script>
 

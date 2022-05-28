@@ -1,8 +1,9 @@
 // api.ts
+import axios from "axios";
 import request from "./request";
 
 const getDynamicRoutes = () =>
-  request.get(`/src/assets/json/dynamicRoutes.json5`);
+  axios.get(`/src/assets/json/dynamicRoutes.json5`);
 
 const login = ({
   username,

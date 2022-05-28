@@ -4,29 +4,42 @@ import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import ElementPlus from "unplugin-element-plus/vite";
 const resolve = (dir: string) => path.join(__dirname, dir);
 export default defineConfig({
   base: "./",
+
   plugins: [
     vue(),
     AutoImport({
       imports: ["vue"],
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
+    }),
+    ElementPlus({
+      useSource: true,
     }),
   ],
   resolve: {
     alias: {
       "@": resolve("src"),
-      comps: resolve("src/components"),
+      components: resolve("src/components"),
       apis: resolve("src/apis"),
       views: resolve("src/views"),
       store: resolve("src/store"),
       utils: resolve("src/utils"),
+      types: resolve("src/types"),
     },
     extensions: [".vue", ".ts", ".js"],
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/sass/element.scss" as *;`,
+      },
+    },
   },
   // server: {
   // 	//服务器主机名
