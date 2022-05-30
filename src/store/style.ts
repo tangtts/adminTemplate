@@ -3,6 +3,7 @@ import { Mode } from "types/common";
 interface IColorStyle {
   elColor: string;
   mode: Mode | "";
+  asideFoldStatus: "Fold" | "UnFold";
 }
 
 export default defineStore("styleStoreId", {
@@ -10,12 +11,16 @@ export default defineStore("styleStoreId", {
     return {
       elColor: "",
       mode: "",
+      asideFoldStatus: "Fold",
     };
   },
   actions: {
-    changeColor(elColor: string) {
+    changeColor(elColor: IColorStyle["elColor"]) {
       this.elColor = elColor;
-      document.documentElement.style.setProperty("--el-color-primary", color);
+      document.documentElement.style.setProperty("--el-color-primary", elColor);
+    },
+    changeAsideFoldStatus(status: IColorStyle["asideFoldStatus"]) {
+      this.asideFoldStatus = status;
     },
   },
 });

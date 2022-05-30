@@ -1,5 +1,4 @@
-
 {
-  "name":"zs",
-  "age":"20"
+  path: "index",
+  component: "login",
 }

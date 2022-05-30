@@ -15,7 +15,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  echart.dispose(myEcharts.value!);
+  // echart.dispose(myEcharts.value!);
 });
 
 // 基础配置一下Echarts

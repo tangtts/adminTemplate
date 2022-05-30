@@ -32,6 +32,7 @@ body,
   margin: 0;
   padding: 0;
 }
+
 .darkBg {
   @apply dark:bg-slate-900 dark:text-white;
 }

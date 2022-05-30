@@ -4,6 +4,7 @@
     :key="menuList.path"
     :index="menuList.path"
   >
+    <el-icon><location /></el-icon>
     <template #title>
       <span>{{ menuList.meta && menuList.meta.title }}</span>
     </template>
@@ -17,6 +18,7 @@
   </el-sub-menu>
 
   <el-menu-item v-else :index="menuList.path">
+    <el-icon><location /></el-icon>
     <template #title>
       {{ menuList.meta && menuList.meta.title }}
     </template>

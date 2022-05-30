@@ -1,13 +1,20 @@
 <template>
-  <el-container class="dark:bg-gray-800 dark:text-white">
-    <el-aside width="200px">
+  <el-container class="dark:bg-gray-800 dark:text-white h-[100vh]">
+    <el-aside width="auto">
       <el-scrollbar>
         <side-bar></side-bar>
       </el-scrollbar>
     </el-aside>
 
     <el-container>
-      <el-header class="font-md">
+      <el-header
+        class="font-md bg-orange-300 flex justify-between items-center"
+      >
+        <Fold
+          @click="store.changeAsideFoldStatus('Fold')"
+          v-if="store.asideFoldStatus == 'UnFold'"
+        />
+        <Expand @click="store.changeAsideFoldStatus('UnFold')" v-else />
         <div class="flex justify-end items-center">
           <div>
             <span>Change Color</span>
@@ -42,13 +49,7 @@ import { onMounted, ref } from "vue";
 import { useMediaQuery } from "utils/index";
 import { styleStore } from "@/store";
 import SideBar from "components/common/Aside/AsideIndex.vue";
-import {
-  Menu as IconMenu,
-  Message,
-  Setting,
-  Sunny,
-  Moon,
-} from "@element-plus/icons-vue";
+import { Menu as IconMenu, Sunny, Moon } from "@element-plus/icons-vue";
 
 const store = styleStore();
 
@@ -84,26 +85,7 @@ const changeColor = (elColor: string) => {
 </script>
 
 <style scoped>
-.layout-container-demo .el-header {
-  position: relative;
-  background-color: var(--el-color-primary-light-7);
-  color: var(--el-text-color-primary);
-}
-.layout-container-demo .el-aside {
-  color: var(--el-text-color-primary);
-  background: var(--el-color-primary-light-8);
-}
-.layout-container-demo .el-menu {
-  border-right: none;
-}
-.layout-container-demo .el-main {
-  padding: 0;
-}
-.layout-container-demo .toolbar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  right: 20px;
+svg {
+  width: 2em;
 }
 </style>

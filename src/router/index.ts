@@ -40,6 +40,13 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import("@/views/animation/index.vue"),
       },
+      {
+        path: "icons",
+        meta: {
+          title: "图标",
+        },
+        component: () => import("@/views/Icons/index.vue"),
+      },
     ],
   },
 ];
@@ -52,7 +59,7 @@ const router = createRouter({
 router.beforeEach(() => {
   nprogress.start();
   getDynamicRoutes().then((res) => {
-    axiosStore().addDynamicRoutes([]);
+    axiosStore().addDynamicRoutes(res.data);
   });
 });
 
