@@ -47,6 +47,13 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import("@/views/Icons/index.vue"),
       },
+      {
+        path: "selectLinkage",
+        meta: {
+          title: "选择联动",
+        },
+        component: () => import("@/views/selectLinkage/index.vue"),
+      },
     ],
   },
 ];
