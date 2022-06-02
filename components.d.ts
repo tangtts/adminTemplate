@@ -61,6 +61,8 @@ declare module '@vue/runtime-core' {
     MenuItem: typeof import('./src/components/common/Aside/MenuItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SelectArea: typeof import('./src/components/common/selectArea/index.vue')['default']
+    Src: typeof import('./src/components/common/baseArea/src/index.vue')['default']
     SvgIcon: typeof import('./src/components/common/SvgIcon/index.vue')['default']
   }
 }
