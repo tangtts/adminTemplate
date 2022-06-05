@@ -1,36 +1,41 @@
 <template>
-  <el-sub-menu
-    v-if="menuList.children && menuList.children.length > 0"
-    :key="menuList.path"
-    :index="menuList.path"
-  >
-    <el-icon><location /></el-icon>
-    <template #title>
-      <span>{{ menuList.meta && menuList.meta.title }}</span>
+  <div>
+    <template v-for="(item, index) in treeData">
+      <el-sub-menu
+        :index="String(index)"
+        v-if="item.children && item.children.length > 0"
+      >
+        <component :is="item.meta?.icon" />
+        <template #title>
+          <span>{{ item.meta?.title }}</span>
+        </template>
+        <TreeMenu :treeData="item.children"></TreeMenu>
+      </el-sub-menu>
+      <el-menu-item v-else :index="item.path" :key="index">
+        <component :is="item.meta?.icon" />
+        <template #title>
+          <span class="ml-2"> {{ item.meta?.title }}</span>
+        </template>
+      </el-menu-item>
     </template>
-
-    <el-menu-item
-      v-for="v in menuList.children"
-      :key="v.path"
-      :index="v.path"
-      :menu-list="v"
-    />
-  </el-sub-menu>
-
-  <el-menu-item v-else :index="menuList.path">
-    <el-icon><location /></el-icon>
-    <template #title>
-      {{ menuList.meta && menuList.meta.title }}
-    </template>
-  </el-menu-item>
+  </div>
 </template>
-
+<script lang="ts">
+export default {
+  name: "TreeMenu",
+};
+</script>
 <script lang="ts" setup>
 import { DefineSetupStoreOptions } from "pinia";
-import { defineComponent, PropType, defineProps, toRefs } from "vue";
+import { defineComponent, PropType, toRef, toRefs } from "vue";
 import { RouteRecordRaw } from "vue-router";
 
-const { menuList } = defineProps<{
-  menuList: RouteRecordRaw;
+const { treeData } = defineProps<{
+  treeData: RouteRecordRaw[];
 }>();
 </script>
+<style>
+svg {
+  width: 1rem;
+}
+</style>

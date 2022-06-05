@@ -15,11 +15,6 @@ import axios from "axios";
 const locale = ref(zhCn);
 
 const store = styleStore();
-onMounted(() => {
-  axios.get("/src/assets/json/dynamicRoutes.json5").then((res) => {
-    console.log(res);
-  });
-});
 </script>
 
 <style lang="scss">

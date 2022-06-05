@@ -2,8 +2,7 @@
 import axios from "axios";
 import request from "./request";
 
-const getDynamicRoutes = () =>
-  axios.get(`/src/assets/json/dynamicRoutes.json5`);
+const getDynamicRoutes = () => axios.get(`/src/assets/json/dynamicRoutes.json`);
 
 const login = ({
   username,

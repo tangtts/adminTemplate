@@ -53,12 +53,6 @@ import { Menu as IconMenu, Sunny, Moon } from "@element-plus/icons-vue";
 
 const store = styleStore();
 
-const item = {
-  date: "2016-05-02",
-  name: "Tom",
-  address: "No. 189, Grove St, Los Angeles",
-};
-
 type Mode = "light" | "dark";
 const mode = ref<Mode>("light");
 

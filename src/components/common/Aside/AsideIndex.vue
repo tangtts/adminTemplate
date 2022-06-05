@@ -10,11 +10,7 @@
       active-text-color="#67C23A"
       router
     >
-      <menu-item
-        v-for="(item, index) in DynamicRoutes"
-        :key="index"
-        :menuList="item"
-      ></menu-item>
+      <menu-item :tree-data="DynamicRoutes"></menu-item>
     </el-menu>
   </div>
 </template>
@@ -29,18 +25,20 @@ import {
   Location,
   Menu,
 } from "@element-plus/icons-vue";
-import { useRouter, useRoute } from "vue-router";
-import { styleStore } from "@/store";
+import { useRouter, useRoute, RouteRecordRaw } from "vue-router";
+import { styleStore, axiosStore } from "@/store";
 import { storeToRefs } from "pinia";
+
 const router = useRouter();
 const route = useRoute();
 const defaultActive = computed(() => route.path);
 const NAME = import.meta.env.VITE_ADMIN_NAME;
 const getAllRouters = router.getRoutes();
 const store = styleStore();
-// TODO 并非动态路由
-const DynamicRoutes = computed(() =>
-  getAllRouters.filter((item) => !item.redirect)
+const DynamicData = axiosStore();
+const DynamicRoutes = computed(
+  () => DynamicData.DynamicRoutes as RouteRecordRaw[]
+  // getAllRouters.filter((item) => !item.redirect)
 );
 
 const isCollapse = computed(() =>
