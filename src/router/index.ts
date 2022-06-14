@@ -61,6 +61,13 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import("@/views/Form/index.vue"),
       },
+      {
+        path: "util",
+        meta: {
+          title: "工具方法",
+        },
+        component: () => import("@/views/utils/index.vue"),
+      },
     ],
   },
 ];

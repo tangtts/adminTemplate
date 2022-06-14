@@ -5,12 +5,14 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import ElementPlus from "unplugin-element-plus/vite";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 const resolve = (dir: string) => path.join(__dirname, dir);
 export default defineConfig({
   base: "./",
 
   plugins: [
     vue(),
+    vueJsx(),
     AutoImport({
       imports: ["vue"],
       resolvers: [ElementPlusResolver({ importStyle: "sass" })],

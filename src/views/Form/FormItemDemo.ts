@@ -1,7 +1,7 @@
-import { h, PropType, resolveComponent } from "vue";
+import { h, PropType, resolveComponent,defineComponent } from "vue";
 import { ElFormItem } from "element-plus";
 //TODO 战术撤退
-export interface ItemConfig {
+export interface IItemConfig {
   itemConfig: {
     label: string;
     type: string;
@@ -15,17 +15,17 @@ export interface ItemConfig {
   };
 }
 
-export default {
+export default defineComponent({
   props: {
     itemConfig: {
-      type: Object as PropType<ItemConfig>,
+      type: Object as PropType<IItemConfig>,
       required: true, //接收配置，外部传入
     },
   },
-  setup(props: ItemConfig, { slots }: any) {
+  setup(props, { slots }) {
     console.log(props);
 
-    return () => [
+    return ()=> (
       h(
         ElFormItem,
         {
@@ -55,6 +55,6 @@ export default {
           ),
         ]
       ),
-    ];
+    )
   },
-};
+});

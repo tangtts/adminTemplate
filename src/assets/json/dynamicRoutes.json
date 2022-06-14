@@ -33,5 +33,12 @@
       "title": "Json表单",
       "icon": "AlarmClock"
     }
+  },
+  {
+    "path": "/util",
+    "meta": {
+      "title": "工具函数",
+      "icon": "AlarmClock"
+    }
   }
 ]
