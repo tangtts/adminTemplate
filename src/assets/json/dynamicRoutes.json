@@ -26,5 +26,12 @@
       "title": "选择联动",
       "icon": "Dish"
     }
+  },
+  {
+    "path": "/form",
+    "meta": {
+      "title": "Json表单",
+      "icon": "AlarmClock"
+    }
   }
 ]

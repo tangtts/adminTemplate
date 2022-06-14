@@ -5,7 +5,6 @@
         <side-bar></side-bar>
       </el-scrollbar>
     </el-aside>
-
     <el-container>
       <el-header
         class="font-md bg-orange-300 flex justify-between items-center"
@@ -72,9 +71,7 @@ const changeMode = (mode: Mode) => {
 };
 
 const changeColor = (elColor: string) => {
-  store.$patch({
-    elColor,
-  });
+  store.changeColor(elColor);
 };
 </script>
 

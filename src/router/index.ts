@@ -54,6 +54,13 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import("@/views/selectLinkage/index.vue"),
       },
+      {
+        path: "form",
+        meta: {
+          title: "JSON表单",
+        },
+        component: () => import("@/views/Form/index.vue"),
+      },
     ],
   },
 ];

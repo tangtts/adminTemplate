@@ -15,6 +15,8 @@ import axios from "axios";
 const locale = ref(zhCn);
 
 const store = styleStore();
+
+//
 </script>
 
 <style lang="scss">
