@@ -6,11 +6,8 @@ import {
   RouterView,
 } from "vue-router";
 
-import Layout from "@/components/layout.vue";
 import nprogress from "nprogress";
 import "nprogress/nprogress.css";
-import { getDynamicRoutes } from "@/axios/api";
-import { axiosStore } from "@/store";
 const routerHash = createWebHashHistory();
 // createWebHashHistory hash 路由
 // createWebHistory history 路由1
@@ -19,57 +16,16 @@ const routerHash = createWebHashHistory();
 export const routes: RouteRecordRaw[] = [
   {
     path: "/login",
-    component: () => import("@/views/login/login.vue"),
+    component: () => import("@/views/login/index.vue"),
   },
   {
-    path: "/",
-    component: Layout,
-    redirect: "index",
-    children: [
-      {
-        path: "index",
+        path: "/",
         meta: {
           title: "首页",
         },
-        component: () => import("@/views/dashbord/index.vue"),
+        component: () => import("@/views/index/index.vue"),
       },
-      {
-        path: "animation",
-        meta: {
-          title: "动画",
-        },
-        component: () => import("@/views/animation/index.vue"),
-      },
-      {
-        path: "icons",
-        meta: {
-          title: "图标",
-        },
-        component: () => import("@/views/Icons/index.vue"),
-      },
-      {
-        path: "selectLinkage",
-        meta: {
-          title: "选择联动",
-        },
-        component: () => import("@/views/selectLinkage/index.vue"),
-      },
-      {
-        path: "form",
-        meta: {
-          title: "JSON表单",
-        },
-        component: () => import("@/views/Form/index.vue"),
-      },
-      {
-        path: "util",
-        meta: {
-          title: "工具方法",
-        },
-        component: () => import("@/views/utils/index.vue"),
-      },
-    ],
-  },
+  
 ];
 
 const router = createRouter({
@@ -79,9 +35,6 @@ const router = createRouter({
 
 router.beforeEach(() => {
   nprogress.start();
-  getDynamicRoutes().then((res) => {
-    axiosStore().addDynamicRoutes(res.data);
-  });
 });
 
 router.afterEach(() => {

@@ -38,17 +38,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response: AxiosResponse) => {
     const res = response.data;
-    console.log(res);
-
     if (res.code) {
-      // `token` 过期或者账号已在别处登录
-      // if (res.code === 401 || res.code === 4001) {
-      //     window.sessionStorage.clear() // 清除浏览器全部临时缓存
-      //     router.push('/login') // 去登录页面
-      //     ElMessageBox.alert('你已被登出，请重新登录', '提示', {})
-      //         .then(() => { })
-      //         .catch(() => { })
-      // }
       return Promise.resolve(res.data);
     } else {
       return response.data;

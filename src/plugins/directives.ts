@@ -21,11 +21,5 @@ export default {
         el.removeEventListener("click", () => handler);
       },
     });
-    app.directive("highlight", function (el: HTMLElement) {
-      const blocks = el.querySelectorAll("pre code");
-      blocks.forEach((block: any) => {
-        hljs.highlightBlock(block);
-      });
-    });
   },
 };
